@@ -19,9 +19,10 @@ class BuildingElement {
             //var aparam = itemData[param];
             _uniqueParams.add(param);
             this[param] = itemData[param];
-            if (param == "Representation") {
+            if (param == "Items") {
                 var loader = new THREE.OBJLoader();
-                var result = loader.parse(itemData[param]);
+                var objstring = itemData[param][0];
+                var result = loader.parse(objstring);
                 for (var i = 0; i < result.children.length; i++) {
 
                     var child = result.children[i];
@@ -41,6 +42,16 @@ class BuildingElement {
         var retlist = [];
         if (this.Mesh) {
             var tempObj = this.Mesh.clone();
+
+            for (var i = 0; i < tempObj.children.length; i++) {
+
+                var child = tempObj.children[i];
+                child.material.color = new THREE.Color(this.Color);
+                child.material.opacity = this.Opacity;
+                if (this.Opacity<1.0) child.material.transparent = true;
+                child.castShadow = true;
+                child.recieveShadow = true;
+            }
             /*                for (var i = 0; i < tempObj.children.length; i++) {
                                 var child = tempObj.children[i];
                                 child.material.color = new THREE.Color(this.Color);

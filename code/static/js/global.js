@@ -1,4 +1,5 @@
 
+var _OBJList = [];           // The main list of all BuildingElements to be displayed
 var _BEList = [];           // The main list of all BuildingElements to be displayed
 var _BEClasses = [];        // The list of all non-abstract classes. User MUST list these in userDraw() [Chair, Column, ...]
 //var _BEClassesByNames = []; // [{"Chair" : Chair}, {"Column" : Column}, ...]
@@ -27,6 +28,9 @@ var CANVAS_WIDTH_PERCENT = .25;
 
 var JSONARR_ORIG = [];   // an array of ALL data objects read from the stored files
 var JSONARR = [];   // an array of ALL data objects read from the stored files
+
+var OBJARR_ORIG = [];   // an array of ALL data objects read from the stored files
+var OBJARR = [];   // an array of ALL data objects read from the stored files
 
 var data;
 var _classData;

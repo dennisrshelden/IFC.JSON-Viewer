@@ -2,10 +2,22 @@ $..
 $..[?(@.Class=='Wall')]
 $..[?(@.Class=='Slab')]
 $..[?(@.Class=='Space')]
+$..[?(@.Class=='Window')]
 $..[?(@.Class=='FurnishingElement')]
+
+$..[?(@.Class == 'FurnishingElement' || @.Class == 'Space' || @.Class == 'Slab')]
+$..[?(@.Class == 'Slab' || @.Class == 'FurnishingElement' )]
+
+$..[?(@.PSet_Revit_Type_Other=='AccessibilityPerformance')]
+$..[?(@.PSet_Revit_Phasing=='New Construction')]
+
+$..[?(@.Volume==262924.86837177584)]
+$..[?(@.Volume<=50000.0)]
+
+$..[?(@.GlobalId=='32ca7e71-00a5-4a22-9043-3c8d01dd2444')]
+
+$..[?(@.Class == 'Wall' && @.Volume<=50000.0)]
+
 $..[?(@.CompositionType=='.ELEMENT.')]
 $..[?(@.isExternal==true)]
-$..[?(@.Manufacturer=='Manufacturer')]
 $..[?(@.Level=='Level 2')]
-$..[?(@.Class == 'Slab' || @.Class == 'FurnishingElement')]
-$..[?(@.Class == 'Slab' || @.Class == 'FurnishingElement' || @.Class == 'Wall')]

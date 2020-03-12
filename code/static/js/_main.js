@@ -1,8 +1,6 @@
 
 function setup() {
-    //_BEClasses = [Wall, Space, Slab, Column, FurnishingElement, Footing ]; // !!MUST DO: ADD NEW CLASSES TO THIS ARRAY:
-    // _BEClasses = [Column]; // !!MUST DO: ADD NEW CLASSES TO THIS ARRAY:
-    _parameterList = ["GlobalId","Name", "Class", "Color", "Opacity"]; // parameters to be displayed in edit table
+    _parameterList = ["GlobalId","Name", "Class", "Volume", "Color", "Opacity"]; // parameters to be displayed in edit table
 
     readClasses();
     setup3D();
@@ -29,16 +27,36 @@ function readModel() {
 };
 
 function updateModel() {
+
+    OBJARR = jsonPath(JSONARR_ORIG, "$..[?(@.RepresentationType=='OBJ')]");
+    _OBJList = [];
+    var i;
+    var loader = new THREE.OBJLoader();
+    for (i = 0; i < OBJARR.length; i++) {
+        var myObj = OBJARR[i];
+        var curMesh = loader.parse(myObj.Items[0]);
+        var curObj = {GlobalID: myObj.GlobalId, Mesh:curMesh  };
+        if (curObj) {
+            _OBJList.push(curObj)
+        }
+
+    }
+
+
     JSONARR = jsonPath(JSONARR_ORIG, _selString);
     _BEList = [];
     _uniqueParams = new Set();
 
-    for (var i = 0; i < JSONARR.length; i++) {
+    for ( i = 0; i < JSONARR.length; i++) {
         var itemObj = JSONARR[i];
         if (_BEClasses.includes(itemObj.Class)) {
             try {
                 var newBE = new BuildingElement(itemObj.Class, itemObj);
                 // newBE.setData(itemObj);
+                var myID = newBE.Representations[0].ref;
+                var myOBJ = _OBJList.find(x => x.GlobalID === myID);
+                //var foundMeshes = jsonPath(_OBJList, "$..[?(@.RepresentationType=='OBJ')]");
+                newBE.Mesh = myOBJ.Mesh.clone();
                 _BEList.push(newBE);
             }
             catch (e) {

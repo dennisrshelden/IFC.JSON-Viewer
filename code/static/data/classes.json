@@ -1,10 +1,5 @@
 [
     {
-        "Class": "Wall",
-        "Color": "#ffff00",
-        "Opacity": 1.0
-    },
-    {
         "Class": "Window",
         "Color": "#aaaaaa",
         "Opacity": 0.5
@@ -12,7 +7,7 @@
     {
         "Class": "Space",
         "Color": "#8888ff",
-        "Opacity": 0.25
+        "Opacity": 0.1
     },
     {
         "Class": "Wall",
@@ -26,12 +21,17 @@
     },
     {
         "Class": "Slab",
-        "Color": "#aaaaaa",
-        "Opacity": 1.0
+        "Color": "#444488",
+        "Opacity": 0.75
     },
     {
         "Class": "FurnishingElement",
         "Color": "#008800",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Beam",
+        "Color": "#888888",
         "Opacity": 1.0
     }
 ]
