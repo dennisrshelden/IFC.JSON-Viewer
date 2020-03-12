@@ -1,0 +1,11 @@
+$..
+$..[?(@.Class=='Wall')]
+$..[?(@.Class=='Slab')]
+$..[?(@.Class=='Space')]
+$..[?(@.Class=='FurnishingElement')]
+$..[?(@.CompositionType=='.ELEMENT.')]
+$..[?(@.isExternal==true)]
+$..[?(@.Manufacturer=='Manufacturer')]
+$..[?(@.Level=='Level 2')]
+$..[?(@.Class == 'Slab' || @.Class == 'FurnishingElement')]
+$..[?(@.Class == 'Slab' || @.Class == 'FurnishingElement' || @.Class == 'Wall')]

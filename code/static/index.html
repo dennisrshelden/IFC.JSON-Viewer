@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>BuildingElements - simple IFC.JSON Viewer</title>
+    <script src="/js/global.js" > </script>
+    <script src="/js/draw.js" > </script>
+    <script src="/lib/jquery.min.js" > </script>   
+    <script src="/lib/three.min.js"></script>
+    <script src="/lib/OrbitControls.js"></script>
+    <script src="/lib/OBJLoader.js"></script>
+    <script src="/lib/MTLLoader.js"></script> 
+    <script src="/data/data.json"></script>
+    <script src="/data/classes.json"></script>
+    <script src="/lib/jsonpath.js" > </script>
+    <script src="/js/buildingElements.js" > </script>
+    <script src="/js/_main.js" > </script>
+    <script src="/js/UITable.js" > </script>
+
+</head>
+<body>
+    <h2>BuildingElements - simple IFC.JSON Viewer</h2>
+    JSONPath Filter: <input style="width:600px" ; type="text" id="pathname" value="$.." onchange="onPathChanged()" > <br><br>
+    <div class="NDviews" id="div3D" ></div> <!-- For the view -->
+    <div class="NDviews" id="objTable" ></div> <!-- For the view -->
+
+    <script>     
+        setup();
+        setInterval(draw3D, 100); 
+    </script>
+</body> 
+</html>
