@@ -19,6 +19,7 @@ class BuildingElement {
             //var aparam = itemData[param];
             _uniqueParams.add(param);
             this[param] = itemData[param];
+
             if (param == "Items") {
                 var loader = new THREE.OBJLoader();
                 var objstring = itemData[param][0];

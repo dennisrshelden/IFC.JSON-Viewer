@@ -35,5 +35,8 @@ var OBJARR = [];   // an array of ALL data objects read from the stored files
 var data;
 var _classData;
 var isSetup3d = false;
-var _selString = "$.."
+var _selString = "$..[?(@.Class!='Wall')]"
 var _objTable;
+
+var _uniqueParams;
+var _uniqueClasses;

@@ -46,9 +46,12 @@ function updateModel() {
     JSONARR = jsonPath(JSONARR_ORIG, _selString);
     _BEList = [];
     _uniqueParams = new Set();
+    _uniqueClasses = new Set();
+
 
     for ( i = 0; i < JSONARR.length; i++) {
         var itemObj = JSONARR[i];
+        _uniqueClasses.add(itemObj.Class);
         if (_BEClasses.includes(itemObj.Class)) {
             try {
                 var newBE = new BuildingElement(itemObj.Class, itemObj);
@@ -66,7 +69,11 @@ function updateModel() {
     } // for
     _objTable.dataObjects = _BEList;
     _objTable.refreshObjectTable();
+/*     console.log("Params: " + _uniqueParams); 
+    console.log("Classes: " + _uniqueClasses);  */
+
     console.log(_uniqueParams); 
+    console.log(_uniqueClasses); 
 }
 
 function onPathChanged() {
