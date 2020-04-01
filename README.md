@@ -27,6 +27,6 @@ The app requires node to run. From the root code directory:
 The IFC.JSON Viewer is made available under the MIT licence. See [LICENSE](LICENSE).
 
 ## Contact
-Dennis Shelden,
-Rensselaer Polytechnic Institute
+Dennis Shelden  
+Rensselaer Polytechnic Institute  
 sheldd@rpi.edu
