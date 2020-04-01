@@ -1,3 +1,5 @@
+*.ini
+
 # Log file
 *.log
 
@@ -10,5 +12,7 @@
 *.tar.gz
 *.rar
 
+# JavaScript #
 node_modules/
 .idea/
+package-lock.json
