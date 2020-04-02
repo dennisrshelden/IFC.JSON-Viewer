@@ -12,7 +12,7 @@ function setup3D() {
     renderer.shadowMap.type = THREE.PCFShadowMap;
     div3D.appendChild(renderer.domElement);
 
-    scene.background = new THREE.Color(0xcccccc);
+    scene.background = new THREE.Color(_backgroundColor);
 
     //camera3d = new THREE.PerspectiveCamera(45, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1000);
     //camera3d = new THREE.OrthographicCamera(-80, 80, 60, -60, -5, 10000);
@@ -60,17 +60,24 @@ function setup3D() {
     isSetup3d = true;
 }
 
-
-function draw3D() {
-    if (!isSetup3d) return;
+function update3D() {
     cleanMeshes();
+
+
 
     if (_BEList.length > 0) {
         for (var i = 0; i < _BEList.length; i++) {
-            var retlist = _BEList[i].draw3D();
+            //var retlist = _BEList[i].draw3D();
+            var elem = _BEList[i];
+            var retlist = elem.Mesh;
             if (retlist != undefined) {
-                for (var j = 0; j < retlist.length; j++) {
-                    meshArr.push(retlist[j]);
+                for (var j = 0; j < retlist.children.length; j++) {
+                    var child = retlist.children[j];
+                    child.material.color = new THREE.Color(elem.Color);
+                    child.material.opacity = elem.Opacity;
+                    if (elem.Opacity<1.0) child.material.transparent = true;
+
+                    meshArr.push(child);
                 }
             }
 
@@ -80,6 +87,12 @@ function draw3D() {
     for (var i = 0; i < meshArr.length; i++) {
         scene.add(meshArr[i]);
     }
+}
+
+function draw3D() {
+    if (!isSetup3d) return;
+    //update3D();
+    scene.background = new THREE.Color(_backgroundColor);
     onWindowResize();
     render();
 }

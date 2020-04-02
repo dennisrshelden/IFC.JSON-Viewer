@@ -43,7 +43,7 @@ class UITable {
 
             if (this.editButton) objText += '<td><button type="button" onclick="showEditTable(this.name, false)" name="' + i + '" > <img style="height:25px" src="static/assets/img/edit.png"> </td>';
             if (this.addButton) objText += '<td><button type="button" onclick="showEditTable(this.name, true)" name="' + i + '" > <img style="height:25px" src="static/assets/img/add.png"> </td>';
-            objText += '<td><button type="button" onclick="onDeleteObject(this.name)" name="' + i + '" > <img style="height:15px" src="static/assets/img/delete.png"> </td>';
+            objText += '<td><button type="button" onclick="onDeleteObject(this.name)" name="' + i + '" > <img style="height:15px" src="assets/img/delete.png"> </td>';
             objText += "</tr>";
         }
         objText += "</table><br>";

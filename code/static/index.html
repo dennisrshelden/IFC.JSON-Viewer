@@ -1,49 +1,76 @@
 <html>
+
 <head>
     <title>BuildingElements - simple IFC.JSON Viewer</title>
-    <script src="/js/global.js" > </script>
-    <script src="/js/draw.js" > </script>
-    <script src="/lib/jquery.min.js" > </script>   
+    <script src="/js/global.js"> </script>
+    <script src="/js/draw.js"> </script>
+    <script src="/lib/jquery.min.js"> </script>
     <script src="/lib/three.min.js"></script>
     <script src="/lib/OrbitControls.js"></script>
     <script src="/lib/OBJLoader.js"></script>
-    <script src="/lib/MTLLoader.js"></script> 
-    <script src="/data/data.json"></script>
-    <script src="/data/classes.json"></script>
-    <script src="/lib/jsonpath.js" > </script>
-    <script src="/js/buildingElements.js" > </script>
-    <script src="/js/_main.js" > </script>
-    <script src="/js/UITable.js" > </script>
+    <script src="/lib/MTLLoader.js"></script>
+    <script src="/lib/jsonpath.js"> </script>
+    <script src="/js/_main.js"> </script>
+    <script src="/js/UITable.js"> </script>
 
 </head>
+
 <body>
+    <!------------------------ Page Start  ---------------------->
     <h2>BuildingElements - simple IFC.JSON Viewer</h2>
-    JSONPath Filter: <input style="width:600px" ; type="text" id="pathname" value="$.." onchange="onPathChanged()" > <br><br>
-    Some Examples: <br>
-    $..<br>
-    $..[?(@.Class=='Wall')]<br>
-    $..[?(@.Class=='Slab')]<br>
 
-    $..[?(@.Class == 'FurnishingElement' || @.Class == 'Space' || @.Class == 'Slab')]<br>
-    $..[?(@.Class == 'Slab' || @.Class == 'FurnishingElement' )]<br>
 
-    $..[?(@.PSet_Revit_Phasing=='New Construction')]<br>
+    <!------------------------ Radio Buttons  ---------------------->
+    <form >
 
-    $..[?(@.Volume==262924.86837177584)]<br>
-    $..[?(@.Volume<=50000.0)]<br>
+        <b>Read / Write</b> <br>
+        <label class="radio-inline">
+            <input style="width:35px"  type="radio" name="optradio2" onClick='setModelServerType("FILESYSTEM");' checked>Disk
+        </label>
+        <label class="radio-inline">
+            <input style="width:35px" type="radio" onClick='setModelServerType("MONGO");'  name="optradio2" > Database
+        </label>
+        &nbsp;&nbsp;&nbsp; <-- Select file store
+    </form>
 
-    $..[?(@.GlobalId=='32ca7e71-00a5-4a22-9043-3c8d01dd2444')]<br>
 
-    $..[?(@.Class == 'Wall' && @.Volume<=50000.0)]<br>
+
+     <!------------------------ File controls  ---------------------->
+    <form action="/" method="post">
+        <textarea name="details" id="update" hidden></textarea>
+        <select style="width:200px" id="fileSelect" onchange="modelSelectChange()"> </select> <-- Select a file
+        <br>
+        <input type="text" style="width:200px" value="" name="name" id="modelName" required /> <button type="submit" class="button" hidden onclick="saveModel()"> SUBMIT </button>  <-- Enter a name to save
+    </form>
+
+
+     <!------------------------ Filters  ---------------------->
+    <b>Filters </b><br>
+    <label class="radio-inline">
+        <input  type="radio" name="optradio1" onClick='setFilterType("JSONPath_Query");' checked>JSONPath
+    </label>
+    <label class="radio-inline">
+        <input  name="optradio1"   type="radio" onClick='setFilterType("Mongo_Query");'> Mongo Query
+    </label>
+    <label class="radio-inline">
+        <input name="optradio1" type="radio" onClick='setFilterType("IfcJSON_Schema_Query");'   > IfcJSON Schema<br>
+    </label> <br>
+
+    <select style="width:300px" id="filterSelect" onchange="filterSelectChange()"> </select> <-- saved filters <br>
+    <input style="width:300px" ; type="text" id="filterName" value="$.." onchange="onFilterChange()">  <-- filter text <br>
+<!--     <i></i>$..[?(@.Class == 'Wall' && @.Volume<=50000.0)]</i> -->
 
     <br>
- 
-    <div class="NDviews" id="div3D" ></div> <!-- For the view -->
-    <div class="NDviews" id="objTable" ></div> <!-- For the view -->
+         <!------------------------ Viewers  ---------------------->
+    <div class="NDviews" id="div3D"></div> <!-- For the view -->
+    <div class="NDviews" id="objTable"></div> <!-- For the object table -->
 
-    <script>     
+
+    <!------------------------ End  ---------------------->
+    <script>
         setup();
         setInterval(draw3D, 100); 
     </script>
-</body> 
+
+</body>
 </html>
