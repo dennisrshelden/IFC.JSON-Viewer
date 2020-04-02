@@ -32,10 +32,23 @@ Follow these steps to install the software:
 - Go to http://localhost:8000/.
 - The software opens an IFC.JSON file by default, after which you can start filtering and querying the data in the viewer.
 
-
-
 ## Using the Viewer
+![screenshot IFC.JSON Viewer](https://github.com/pipauwel/tree/master/img/ifc.json.png "Screenshot of initial IFC.JSON Viewer")
 
+The IFC.JSON Viewer has a 3D viewer embedded by default. The top part of the screen includes a JSONPath filter for filtering elements. A number of example filter are given:
+
+~~~~
+$..
+$..[?(@.Class=='Wall')]
+$..[?(@.Class=='Slab')]
+$..[?(@.Class == 'FurnishingElement' || @.Class == 'Space' || @.Class == 'Slab')]
+$..[?(@.Class == 'Slab' || @.Class == 'FurnishingElement' )]
+$..[?(@.PSet_Revit_Phasing=='New Construction')]
+$..[?(@.Volume==262924.86837177584)]
+$..[?(@.Volume<=50000.0)]
+$..[?(@.GlobalId=='32ca7e71-00a5-4a22-9043-3c8d01dd2444')]
+$..[?(@.Class == 'Wall' && @.Volume<=50000.0)]
+~~~~
 
 ## License
 The IFC.JSON Viewer is made available under the MIT licence. See [LICENSE](LICENSE).
