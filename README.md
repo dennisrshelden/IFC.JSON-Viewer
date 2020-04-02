@@ -6,8 +6,11 @@ Sample IFC.JSON files are provided in the [sample_files directory](sample_files)
 
 ## Requirements
 The app has the following requirements:
-- node.js version xxx
-- npm version XXX
+- node.js version 12.14.0
+- npm version 6.13.4
+
+And an express dependency:
+- express.js version 4.17.1
 
 ## Installation
 Follow these steps to install the software:
