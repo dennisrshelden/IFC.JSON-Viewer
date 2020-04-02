@@ -33,7 +33,7 @@ Follow these steps to install the software:
 - The software opens an IFC.JSON file by default, after which you can start filtering and querying the data in the viewer.
 
 ## Using the Viewer
-![screenshot IFC.JSON Viewer](https://github.com/pipauwel/blob/master/img/ifc.json.png "Screenshot of initial IFC.JSON Viewer")
+![screenshot IFC.JSON Viewer](https://raw.githubusercontent.com/pipauwel/IFC.JSON-Viewer/master/img/ifc.json.png "Screenshot of initial IFC.JSON Viewer")
 
 The IFC.JSON Viewer has a 3D viewer embedded by default. The top part of the screen includes a JSONPath filter for filtering elements. A number of example filter are given:
 
