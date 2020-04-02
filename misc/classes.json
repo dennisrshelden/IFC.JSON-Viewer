@@ -1,0 +1,42 @@
+[
+    {
+        "Class": "Wall",
+        "Color": "#ffff00",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Window",
+        "Color": "#aaaaaa",
+        "Opacity": 0.5
+    },
+    {
+        "Class": "Space",
+        "Color": "#8888ff",
+        "Opacity": 0.0
+    },
+    {
+        "Class": "Beam",
+        "Color": "#000055",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Column",
+        "Color": "#000077",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Footing",
+        "Color": "#888888",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Slab",
+        "Color": "#777777",
+        "Opacity": 0.5
+    },
+    {
+        "Class": "FurnishingElement",
+        "Color": "#008800",
+        "Opacity": 1.0
+    }
+]
