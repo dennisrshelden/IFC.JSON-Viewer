@@ -1,0 +1,67 @@
+[
+    {
+        "Class": "Window",
+        "Color": "#aaaaaa",
+        "Opacity": 0.5
+    },
+    {
+        "Class": "Space",
+        "Color": "#8888ff",
+        "Opacity": 0.1
+    },
+    {
+        "Class": "Wall",
+        "Color": "#ffff00",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "WallStandardCase",
+        "Color": "#aaaaaa",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Footing",
+        "Color": "#888888",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Slab",
+        "Color": "#444488",
+        "Opacity": 0.75
+    },
+    {
+        "Class": "FurnishingElement",
+        "Color": "#008800",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Beam",
+        "Color": "#ffff00",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Plate",
+        "Color": "#888888",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Member",
+        "Color": "#888888",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Column",
+        "Color": "#008800",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "BuildingElementProxy",
+        "Color": "#888888",
+        "Opacity": 1.0
+    },
+    {
+        "Class": "Roof",
+        "Color": "#994444",
+        "Opacity": 1.0
+    }
+]
