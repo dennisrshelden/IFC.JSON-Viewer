@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pipauwel/IFC.JSON-Viewer.git"
+    "url": "git+https://github.com/dennisrshelden/IFC.JSON-Viewer.git"
   },
   "keywords": [
     "IFC",
@@ -22,10 +22,12 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pipauwel/IFC.JSON-Viewer/issues"
+    "url": "https://github.com/dennisrshelden/IFC.JSON-Viewer/issues"
   },
-  "homepage": "https://github.com/pipauwel/IFC.JSON-Viewer#readme",
+  "homepage": "https://github.com/dennisrshelden/IFC.JSON-Viewer#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.5.5",
+    "serve-index": "^1.9.1"
   }
 }
